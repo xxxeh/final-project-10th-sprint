@@ -7,11 +7,7 @@
 #   dir3
 #       dir4
 
-mkdir task/
-mkdir task/dir1/
-mkdir task/dir2/
-mkdir task/dir3/
-mkdir task/dir3/dir4/
+mkdir -p task/dir1 task/dir2 task/dir3/dir4
 
 # изменяем текущую директорию на task
 
@@ -45,7 +41,7 @@ find . -type f -name "*.txt" > dir1/summary.txt
 cat dir2/list.txt >> dir1/summary.txt
 
 # определяем переменную окружения NAME со значением "Всем студентам"
-NAME="Всем студентам"
+export NAME="Всем студентам"
 
 # запускаем task/dir2/hello.sh с переменной окружения NAME в качестве аргумента
 # вывод скрипта должен дописаться в файл task/dir1/summary.txt
@@ -59,7 +55,7 @@ cat ./'Практическое задание'
 
 # ищем в файле "Практическое задание" строки, которые содержат слово "dir"
 # и затем отсортировываем их
-grep 'dir' ./'Практическое задание'
+grep 'dir' ./'Практическое задание' | sort
 
 # меняем текущую директорию на родительскую для task
 cd ../
